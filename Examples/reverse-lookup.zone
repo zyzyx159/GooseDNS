@@ -18,7 +18,7 @@ $TTL 600
 22.1			IN	PTR	bassanio.example.com.
 23.1			IN	PTR	francisco.example.com.
 27.1			IN	PTR	velutus.example.com.
-33.1            IN  PTR demetrius.example.com.
+33.1                    IN      PTR     demetrius.example.com.
 46.1			IN	PTR	snug.example.com.
 50.1			IN	PTR	touchstone.example.com.
 
