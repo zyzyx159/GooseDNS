@@ -1,0 +1,25 @@
+$TTL 600
+10.10.in-addr.arpa.	IN      SOA     ns3.example.com. sysadmin.example.com. (
+			2019010400      ;serial
+                        10800           ;refresh every 3h ( *slave server instructions )
+                        1800            ;retry refresh every 1/2h ( *slave )
+                        1209600         ;expire after 2w ( *slave )
+                        3600            ;neg cache (aka min ttl) 1h
+                        )
+;
+; Name Servers
+;
+10.10.in-addr.arpa.		IN	NS	ns3.example.com.
+10.10.in-addr.arpa.		IN	NS	ns5.example.com.
+10.10.in-addr.arpa.		IN	NS	ferdinand.example.com.
+10.10.in-addr.arpa.		IN	NS	francisco.example.com.
+;
+21.1			IN	PTR	ferdinand.example.com.
+22.1			IN	PTR	bassanio.example.com.
+23.1			IN	PTR	francisco.example.com.
+27.1			IN	PTR	velutus.example.com.
+33.1            IN  PTR demetrius.example.com.
+46.1			IN	PTR	snug.example.com.
+50.1			IN	PTR	touchstone.example.com.
+
+;EOF

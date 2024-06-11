@@ -1,0 +1,33 @@
+$TTL 6h
+example.com.		IN	SOA	ns3.example.com.	sysadmin.example.com. (
+                        2019010400      ;serial
+			10800 		;refresh every 6 hrs
+			1800 		;retry refresh every 1/2 hour
+			1209600		;expire after 7 days
+			10800 		;minimum ttl (time-to-live) is 6 hrs
+			)
+;			10800 		;minimum ttl (time-to-live) is 1/2 day
+;
+; Name Servers (the name '@' is implied)
+;
+example.com.		IN	NS	ferdinand.example.com.
+example.com.		IN	NS	francisco.example.com.
+
+;
+; Host addresses
+;
+;localhost.example.com.		IN	A	127.0.0.1
+;
+; LAN hosts
+ferdinand			IN	A	10.10.1.21
+bassanio			IN	A	10.10.1.22
+francisco			IN	A	10.10.1.23
+velutus				IN	A	10.10.1.27
+demetrius     		IN	A	10.10.1.33
+snug          		IN	A	10.10.1.46
+touchstone	  		IN	A	10.10.1.50
+;
+; include global alias list(s)
+$include "include/aliases.example.com"
+;
+; EOF
