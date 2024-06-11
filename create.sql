@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-Create table domain(
+CREATE TABLE domain(
     FQDN text primary key,
     email text,
     SN int(10),
@@ -12,16 +12,15 @@ Create table domain(
     active varchar(1)
 );
 
-insert into domain values(
-    'example.com',
-    'john@example.com',
-    2024061001,
-    '10800',
-    '1800',
-    '1209600',
-    '10800',
-    '1.2.3.4',
-    'T'
+CREATE TABLE Subdomains(
+    id int primary key,
+    name text,
+    active varchar(1),
+    FOREIGN KEY(FQDN) REFERENCES domain(FQDN)
 );
 
+CREATE TABLE noIP(
+    timeStamp datetime primary key
+    
+)
 COMMIT;
