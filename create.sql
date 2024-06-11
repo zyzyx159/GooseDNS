@@ -19,8 +19,13 @@ CREATE TABLE Subdomains(
     FOREIGN KEY(FQDN) REFERENCES domain(FQDN)
 );
 
-CREATE TABLE noIP(
-    timeStamp datetime primary key
-    
-)
+CREATE TABLE MISC(
+    id int primary key,
+    name text,
+    FOREIGN KEY (FQDN) REFERENCES domain(FQDN),
+    recordType text,
+    value text    
+);
+
+
 COMMIT;
