@@ -37,7 +37,7 @@ insert into Subdomains values(
     'example.com'
 );
 
-CREATE TABLE MISC(
+CREATE TABLE Core(
     id int PRIMARY KEY,
     name text,
     FQDN text,
@@ -46,7 +46,7 @@ CREATE TABLE MISC(
     FOREIGN KEY(FQDN) REFERENCES domain(FQDN)
 );
 
-insert into MISC values(
+insert into Core values(
     1,
     'nameServer',
     'example.com',
