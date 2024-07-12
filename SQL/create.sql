@@ -19,7 +19,7 @@ insert into domain values(
     '1800',
     '1209600',
     '10800',
-    'T'
+    'F'
 );
 
 CREATE TABLE Subdomains(
@@ -31,7 +31,7 @@ CREATE TABLE Subdomains(
 );
 
 insert into Subdomains values(
-    1,
+    0,
     'Demonstration',
     'F',
     'example.com'
@@ -47,7 +47,7 @@ CREATE TABLE Core(
 );
 
 insert into Core values(
-    1,
+    0,
     'nameServer',
     'example.com',
     'NS',
