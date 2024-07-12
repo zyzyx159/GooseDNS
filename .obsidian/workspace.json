@@ -147,6 +147,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "51db5ce8902f0ba7",
-  "lastOpenFiles": []
+  "active": "0288e37207d33830",
+  "lastOpenFiles": [
+    "goose.db-journal",
+    "goose.db",
+    "SQL/reportShort.sql",
+    "SQL/selectDomain.sql"
+  ]
 }

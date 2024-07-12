@@ -2,8 +2,8 @@
 
 ### Goals:
 
-1. Write Python code to generate the DB if its missing.
-2. Dynamically add tables from templates
+- [x] Write Python code to generate the DB if its missing.
+- [ ] Display domains and subdomains
 
 # Version 0.2
 
