@@ -7,5 +7,8 @@ checkDB = os.path.isfile(database)
 
 conn = sqlite3.connect("goose.db")
 cursor = conn.cursor()
-# cursor.execute(create_table_sql)
-print(checkDB)
+
+if checkDB == False:
+    with open('./SQL/create.sql', 'r') as file:
+        sql = file.read()
+    cursor.execute(sql)
