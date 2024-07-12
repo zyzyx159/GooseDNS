@@ -1,7 +1,8 @@
 BEGIN TRANSACTION;
 
 CREATE TABLE domain(
-    FQDN text PRIMARY KEY,
+    id int PRIMARY KEY,
+    FQDN text,
     email text,
     SN int(10),
     refresh text,
@@ -12,6 +13,7 @@ CREATE TABLE domain(
 );
 
 insert into domain values(
+    0,
     'example.com',
     'email@example.com',
     1970010101,
