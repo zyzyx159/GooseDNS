@@ -1,5 +1,6 @@
 import os.path
 import sqlite3
+from beaupy import confirm, select
 
 database = './goose.db'
 checkDB = os.path.isfile(database)
@@ -30,11 +31,15 @@ subdomains = str(cursor.fetchone()[0])
 cursor.execute(reportQueries[3])
 activeSubdomains = str(cursor.fetchone()[0])
 
+selOptions = [
+    'Register a new domain',
+    'Edit existing domain',
+    'Register a new subdomain',
+    'Edit and existing subdomain'
+]
+
 print('You have ' + domains + ' Domains registered, ' + activeDomains + ' of which are active.')
 print('You have ' + subdomains + ' Subdomains registered, ' + activeSubdomains + ' of which are active.')
 print('')
-print('Available options:')
-print('1. Register a new domain')
-print('2. Activate/deactivate a domain')
-print('3. Register a new subdomain')
-print('4. Activate/deactivate a subdomain')
+opt = select(selOptions, cursor="🢧", cursor_style="cyan")
+console.print("{opt}")
