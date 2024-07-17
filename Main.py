@@ -1,6 +1,7 @@
 import os.path
 import sqlite3
 from beaupy import confirm, select
+from rich.console import Console
 
 database = './goose.db'
 checkDB = os.path.isfile(database)
@@ -38,8 +39,10 @@ selOptions = [
     'Edit and existing subdomain'
 ]
 
-print('You have ' + domains + ' Domains registered, ' + activeDomains + ' of which are active.')
-print('You have ' + subdomains + ' Subdomains registered, ' + activeSubdomains + ' of which are active.')
-print('')
+console = Console()
+
+console.print('You have ' + domains + ' Domains registered, ' + activeDomains + ' of which are active.')
+console.print('You have ' + subdomains + ' Subdomains registered, ' + activeSubdomains + ' of which are active.')
+console.print('')
 opt = select(selOptions, cursor="🢧", cursor_style="cyan")
 console.print("{opt}")
