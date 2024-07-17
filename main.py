@@ -45,4 +45,15 @@ console.print('You have ' + domains + ' Domains registered, ' + activeDomains + 
 console.print('You have ' + subdomains + ' Subdomains registered, ' + activeSubdomains + ' of which are active.')
 console.print('')
 opt = select(selOptions, cursor="🢧", cursor_style="cyan")
-console.print("{opt}")
+
+#I wanted to use a switch statement, but Python the match option does not work that way.
+if opt == selOptions[0]:
+    console.print('new domain')
+elif opt == selOptions[1]:
+    console.print('edit domain')
+elif opt == selOptions[2]:
+    console.print('new subdomain')
+elif opt == selOptions[3]:
+    console.print('edit subdomain')
+else:
+    console.print('This should not be possible')
