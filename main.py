@@ -1,36 +1,8 @@
-import os.path
-import sqlite3
 from beaupy import confirm, select
 from rich.console import Console
+from sqlHandler import *
 
-database = './goose.db'
-checkDB = os.path.isfile(database)
-conn = sqlite3.connect("goose.db")
-cursor = conn.cursor()
-
-def runsql(fname):
-    with open('./SQL/' + fname, 'r') as file:
-        sql = file.read()
-    sqlArray = sql.split(2*os.linesep)
-    return sqlArray
-
-#if DB does not exist create it
-if checkDB == False:
-    for sql in runsql('create.sql'):
-        cursor.execute(sql)
-
-reportQueries = runsql('reportShort.sql')
-cursor.execute(reportQueries[0])
-domains = str(cursor.fetchone()[0])
-
-cursor.execute(reportQueries[1])
-activeDomains = str(cursor.fetchone()[0])
-
-cursor.execute(reportQueries[2])
-subdomains = str(cursor.fetchone()[0])
-
-cursor.execute(reportQueries[3])
-activeSubdomains = str(cursor.fetchone()[0])
+initDB()
 
 selOptions = [
     'Register a new domain',
@@ -41,8 +13,10 @@ selOptions = [
 
 console = Console()
 
-console.print('You have ' + domains + ' Domains registered, ' + activeDomains + ' of which are active.')
-console.print('You have ' + subdomains + ' Subdomains registered, ' + activeSubdomains + ' of which are active.')
+report = multiSelect('reportShort.sql')
+
+console.print('You have ' + str(report[0]) + ' Domains registered, ' + str(report[1]) + ' of which are active.')
+console.print('You have ' + str(report[2]) + ' Subdomains registered, ' + str(report[3]) + ' of which are active.')
 console.print('')
 opt = select(selOptions, cursor="🢧", cursor_style="cyan")
 
