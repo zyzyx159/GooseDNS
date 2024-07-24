@@ -22,5 +22,13 @@ def multiSelect(fName):
     multiSelectArray = []
     for query in sqlFileToStringArray(fName):
         cursor.execute(query)
-        multiSelectArray.append(cursor.fetchone())
+        multiSelectArray.append(intConvertTuple(cursor.fetchone()))
     return multiSelectArray
+
+def intConvertTuple(tup):
+    string = ''.join(map(str, tup))
+    return string
+
+def strConvertTuple(tup):
+    string = ''.join(tup)
+    return string

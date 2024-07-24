@@ -15,9 +15,10 @@ console = Console()
 
 report = multiSelect('reportShort.sql')
 
-console.print('You have ' + str(report[0]) + ' Domains registered, ' + str(report[1]) + ' of which are active.')
-console.print('You have ' + str(report[2]) + ' Subdomains registered, ' + str(report[3]) + ' of which are active.')
+console.print('You have ' + report[0] + ' Domains registered, ' + report[1] + ' of which are active.')
+console.print('You have ' + report[2] + ' Subdomains registered, ' + report[3] + ' of which are active.')
 console.print('')
+
 opt = select(selOptions, cursor="🢧", cursor_style="cyan")
 
 #I wanted to use a switch statement, but Python the match option does not work that way.
