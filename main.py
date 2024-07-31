@@ -1,6 +1,7 @@
 from beaupy import confirm, select
 from rich.console import Console
 from sqlHandler import *
+import pandas as pd
 
 initDB()
 

@@ -6,17 +6,22 @@ checkDB = os.path.isfile(database)
 conn = sqlite3.connect("goose.db")
 cursor = conn.cursor()
 
-#if DB does not exist create it
 def initDB():
     if checkDB == False:
         for sql in runsql('create.sql'):
             cursor.execute(sql)
 
-def sqlFileToStringArray(fname):
-    with open('./SQL/' + fname, 'r') as file:
+def sqlFileToStringArray(fName):
+    with open('./SQL/' + fName, 'r') as file:
         sql = file.read()
     sqlArray = sql.split(2*os.linesep)
     return sqlArray
+
+def singleSelect(fName):
+    for sql in runSQL(fName):
+        cursor.execute(sql)
+        
+    return 
 
 def multiSelect(fName):
     multiSelectArray = []
@@ -32,3 +37,4 @@ def intConvertTuple(tup):
 def strConvertTuple(tup):
     string = ''.join(tup)
     return string
+
