@@ -3,7 +3,7 @@ from rich.console import Console
 from sqlHandler import *
 import pandas as pd
 
-initDB()
+#initDB()
 
 selOptions = [
     'Register a new domain',
@@ -14,7 +14,7 @@ selOptions = [
 
 console = Console()
 
-report = multiSelect('reportShort.sql')
+report = SQLHandler('reportShort.sql').multiSelect()
 
 console.print('You have ' + report[0] + ' Domains registered, ' + report[1] + ' of which are active.')
 console.print('You have ' + report[2] + ' Subdomains registered, ' + report[3] + ' of which are active.')
