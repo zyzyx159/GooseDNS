@@ -1,9 +1,9 @@
 from beaupy import confirm, select
 from rich.console import Console
-from sqlHandler import *
+from DBInterface import *
 import pandas as pd
 
-SQLHandler.checkDB
+DBInterface.create
 
 selOptions = [
     'Register a new domain',
@@ -14,7 +14,7 @@ selOptions = [
 
 console = Console()
 
-report = SQLHandler('reportShort.sql').multiSelect()
+report = DBInterface().reportShort()
 
 console.print('You have ' + report[0] + ' Domains registered, ' + report[1] + ' of which are active.')
 console.print('You have ' + report[2] + ' Subdomains registered, ' + report[3] + ' of which are active.')
