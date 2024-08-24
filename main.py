@@ -3,7 +3,7 @@ from rich.console import Console
 from sqlHandler import *
 import pandas as pd
 
-#initDB()
+SQLHandler.checkDB
 
 selOptions = [
     'Register a new domain',

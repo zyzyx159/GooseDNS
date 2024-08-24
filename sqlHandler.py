@@ -10,7 +10,6 @@ class SQLHandler(object):
     def __init__(self, fName):
         self.DBCheck
         self.fName = fName
-        #print(self.database)
 
     def DBCheck(self):
         if checkDB == False:
