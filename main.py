@@ -3,7 +3,7 @@ from rich.console import Console
 from DBInterface import *
 import pandas as pd
 
-DBInterface.create
+DBInterface().create()
 
 selOptions = [
     'Register a new domain',

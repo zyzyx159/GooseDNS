@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-CREATE TABLE domain(
+CREATE TABLE Domain(
     id int PRIMARY KEY,
     FQDN text,
     email text,
@@ -12,7 +12,7 @@ CREATE TABLE domain(
     active varchar(1)
 );
 
-insert into domain values(
+insert into Domain values(
     0,
     'example.com',
     'email@example.com',
@@ -29,7 +29,7 @@ CREATE TABLE Subdomains(
     name text,
     active varchar(1),
     FQDN text,
-    FOREIGN KEY(FQDN) REFERENCES domain(FQDN)
+    FOREIGN KEY(FQDN) REFERENCES Domain(FQDN)
 );
 
 insert into Subdomains values(

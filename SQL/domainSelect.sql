@@ -8,5 +8,5 @@ SELECT ID,
     Minimum_TTL, 
     Wan_IP, 
     Active 
-FROM domain
+FROM Domain
 WHERE ID = 
