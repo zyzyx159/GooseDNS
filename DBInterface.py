@@ -8,9 +8,10 @@ class DBInterface(object):
     cursor = conn.cursor()
 
     def create(self):
-        if checkDB == False:
-            for sql in runsql('create.sql'):
-                cursor.execute(sql)
+        if self.checkDB == False: 
+            sqlArray = self.readSQL("create")
+            for query in sqlArray:
+                self.cursor.execute(query)
 
     def domainSelect(self):
         #place holder
@@ -19,13 +20,17 @@ class DBInterface(object):
 
     def reportShort(self):
         ReportShortArray = []
-        with open('./SQL/reportShort.sql', 'r') as file:
-            sql = file.read()
-        sqlArray = sql.split(2*os.linesep)
+        sqlArray = self.readSQL("reportShort")
         for query in sqlArray:
             self.cursor.execute(query)
             ReportShortArray.append(self.intConvertTuple(self.cursor.fetchone()))
         return ReportShortArray
+
+    def readSQL(self, file):
+        with open('./SQL/' + file + '.sql', 'r') as file:
+            sql = file.read()
+        sqlArray = sql.split(2*os.linesep)
+        return sqlArray
 
     def intConvertTuple(self, tup):
         string = ''.join(map(str, tup))
