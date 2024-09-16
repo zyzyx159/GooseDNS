@@ -5,13 +5,6 @@ import pandas as pd
 
 DBInterface().create()
 
-selOptions = [
-    'Register a new domain',
-    'Edit existing domain',
-    'Register a new subdomain',
-    'Edit and existing subdomain'
-]
-
 console = Console()
 
 report = DBInterface().reportShort()
@@ -20,9 +13,16 @@ console.print('You have ' + report[0] + ' Domains registered, ' + report[1] + ' 
 console.print('You have ' + report[2] + ' Subdomains registered, ' + report[3] + ' of which are active.')
 console.print('')
 
+selOptions = [
+    'Register a new domain',
+    'Edit existing domain',
+    'Register a new subdomain',
+    'Edit and existing subdomain'
+]
+
 opt = select(selOptions, cursor="🢧", cursor_style="cyan")
 
-#I wanted to use a switch statement, but Python the match option does not work that way.
+#I wanted to use a switch statement, but in Python the match option does not work that way.
 if opt == selOptions[0]:
     console.print('new domain')
 elif opt == selOptions[1]:
