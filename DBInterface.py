@@ -13,25 +13,27 @@ class DBInterface(object):
                 cursor.execute(sql)
 
     def domainSelect(self):
-        #place holder
-        #I will do things later
-        print("later")
+        
+
+    def maxDomainID(self):
+        self.cursor.execute(self._readFile('maxDomainID.sql'))
+        return int(self.intConvertTuple(self.cursor.fetchone()))
 
     def reportShort(self):
         ReportShortArray = []
-        with open('./SQL/reportShort.sql', 'r') as file:
-            sql = file.read()
-        sqlArray = sql.split(2*os.linesep)
+        sqlArray = self._readFile('reportShort.sql').split(2*os.linesep)
         for query in sqlArray:
             self.cursor.execute(query)
             ReportShortArray.append(self.intConvertTuple(self.cursor.fetchone()))
         return ReportShortArray
 
+    def _readFile(self, fileName):
+        with open('./SQL/' + fileName, 'r') as file:
+            sql = file.read()
+        return sql
+
     def intConvertTuple(self, tup):
-        string = ''.join(map(str, tup))
-        return string
+        return ''.join(map(str, tup))
 
     def strConvertTuple(self, tup):
-        string = ''.join(tup)
-        return string
-
+        return ''.join(tup)
