@@ -26,7 +26,8 @@ opt = select(selOptions, cursor="🢧", cursor_style="cyan")
 if opt == selOptions[0]:
     console.print('new domain')
 elif opt == selOptions[1]:
-    console.print('edit domain')
+    # console.print('edit domain')
+    pd.read_sql_table('domain')
 elif opt == selOptions[2]:
     console.print('new subdomain')
 elif opt == selOptions[3]:

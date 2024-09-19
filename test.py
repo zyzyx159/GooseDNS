@@ -1,9 +1,4 @@
-import os.path
+from DBInterface import *
 
-with open('./SQL/create.sql', 'r') as file:
-    sql = file.read()
-#cursor.execute(sql)
-split = sql.split(';')
+print(int(DBInterface().maxDomainID()) + 1)
 
-for sql in split:
-    print(sql)
