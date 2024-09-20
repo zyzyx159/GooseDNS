@@ -20,17 +20,24 @@ selOptions = [
     'Edit and existing subdomain'
 ]
 
+con = sqlite3.connect("goose.db")
+
 opt = select(selOptions, cursor="🢧", cursor_style="cyan")
 
 #I wanted to use a switch statement, but in Python the match option does not work that way.
 if opt == selOptions[0]:
     console.print('new domain')
 elif opt == selOptions[1]:
-    # console.print('edit domain')
-    pd.read_sql_table('domain')
+    drawDomainTable()
 elif opt == selOptions[2]:
     console.print('new subdomain')
 elif opt == selOptions[3]:
-    console.print('edit subdomain')
+    df = pd.read_sql_query('select * from Subdomains', con)
+    print(df.to_markdown(index=False, tablefmt='grid'))
 else:
     console.print('This should not be possible')
+    
+def drawDomainTable():
+    df = pd.read_sql_query('select * from domain', con)
+    print(df.to_markdown(index=False, tablefmt='grid'))
+    con.close()
