@@ -13,9 +13,6 @@ class DBInterface(object):
             for query in sqlArray:
                 self.cursor.execute(query)
 
-    #def domainSelect(self):
-        
-
     def maxDomainID(self):
         self.cursor.execute(self.readSQL('maxDomainID'))
         return int(self.intConvertTuple(self.cursor.fetchone()))
