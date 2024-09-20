@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 beaupy = "*"
 requests = "*"
+tabulate = "*"
 
 [dev-packages]
 
