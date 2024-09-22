@@ -1,9 +1,18 @@
+# Version 0.3
+
+### Goals:
+
+- [] More work on UI
+- [] Edit data frame
+- [] Push edited data frame back up to DB
+- [] Figure out what to do with SN. I can't store it in the domain table, but I have to store it.
+
 # Version 0.2.1
 
 ### Goals:
 
 - [x] Write Python code to generate the DB if its missing.
-- [ ] Display domains and subdomains
+- [x] Display domains and subdomains
 
 # Version 0.2
 
