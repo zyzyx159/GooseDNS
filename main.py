@@ -1,6 +1,7 @@
 from beaupy import confirm, select
 from rich.console import Console
 from DBInterface import *
+from dataFrame import *
 import pandas as pd
 
 DBInterface().create()
@@ -28,7 +29,9 @@ opt = select(selOptions, cursor="🢧", cursor_style="cyan")
 if opt == selOptions[0]:
     console.print('new domain')
 elif opt == selOptions[1]:
-    drawDomainTable()
+    # domainDF = dataFrame()
+    # domainDF().drawTable('domain')
+    dataFrame.drawTable('domain')
 elif opt == selOptions[2]:
     console.print('new subdomain')
 elif opt == selOptions[3]:
@@ -36,8 +39,3 @@ elif opt == selOptions[3]:
     print(df.to_markdown(index=False, tablefmt='grid'))
 else:
     console.print('This should not be possible')
-    
-def drawDomainTable():
-    df = pd.read_sql_query('select * from domain', con)
-    print(df.to_markdown(index=False, tablefmt='grid'))
-    con.close()
